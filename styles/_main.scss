@@ -1,0 +1,68 @@
+.header-container {
+  width: 60vw;
+  height: 100vh;
+  margin: 0 auto;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+
+  @include tablet {
+    overflow-y: auto;
+    height: auto;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    scroll-snap-align: start;
+
+    @include tablet {
+      scroll-snap-align: unset;
+      height: 90vh;
+    }
+
+    img {
+      width: 40%;
+      filter: drop-shadow(-5px 5px 5px rgba(0, 0, 0, 0.7));
+
+      @include mini {
+        width: 70%;
+      }
+
+      @include phone {
+        width: 100%;
+      }
+    }
+
+    p {
+      color: $black;
+      font-weight: 500;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+
+    & > a {
+      display: inline-block;
+      margin: 1rem 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $white;
+      @include addTextDecorationOnHover;
+    }
+
+    div {
+      text-align: center;
+    }
+  }
+}
